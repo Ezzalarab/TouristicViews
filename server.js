@@ -20,7 +20,7 @@ var path = require('path');
 
 
 // the mongodb connection
-const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@touristicviews.s2gun.mongodb.net/?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://Tayeb:tayep1998@touristicviews.s2gun.mongodb.net/?retryWrites=true&w=majority`
 mongoose.connect(connectionString).
     then(() => console.log('MongoDB connected...')).
     catch(err => console.log(err));
