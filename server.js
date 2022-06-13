@@ -22,7 +22,6 @@ var path = require('path');
 
 
 // the mongodb connection
-const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@touristicviews.s2gun.mongodb.net/?retryWrites=true&w=majority`
 mongoose.connect(connectionString).
     then(() => console.log('MongoDB connected...')).
     catch(err => console.log(err));
@@ -94,8 +93,6 @@ var upload = multer({ storage: storage });
 app.post('/upload', upload.single('image'), (req, res, next) => {
     console.log('hello')
     var obj = {
-        userID: req.body.userID,
-        categoryID: req.body.categoryID,
         image: '/cacheImage/' + req.file.filename
     }
 
@@ -242,7 +239,6 @@ app.get('/getImage', (req, res) => {
 
 // start the server 
 const server = http.createServer(app)
-server.listen(process.env.PORT || 3000, (req, res) => {
 
 
     console.log(`the server is running on ${process.env.PORT} ports`)
