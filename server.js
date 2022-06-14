@@ -89,6 +89,7 @@ var uploadCategoryImage = multer({ storage: storageCategoryImage })
 
 app.post('/user/upload', upload.single('image'), (req, res, next) => {
 
+<<<<<<< HEAD
     const { username, categoryID, title, description } = req.body
     var obj = {
         username,
@@ -96,6 +97,14 @@ app.post('/user/upload', upload.single('image'), (req, res, next) => {
         title,
         description,
         image: '/images/' + req.file.filename
+=======
+app.post('/upload', upload.single('image'), (req, res, next) => {
+    console.log( req.body.userID)
+    var obj = {
+        // userID: req.body.userID,
+        // categoryID: req.body.categoryID,
+        image: '/cacheImage/' + req.file.filename
+>>>>>>> f0922e9698aa9ab647e57cfbec8add0156da77e5
     }
 
     image.create(obj, (err, item) => {
@@ -143,6 +152,12 @@ app.post('/admin/addCategory', uploadCategoryImage.single('image'), (req, res, n
 
 // start the server 
 const server = http.createServer(app)
+<<<<<<< HEAD
 server.listen(process.env.PORT || 3000, (req, res) => {
+=======
+server.listen(8080, (req, res) => {
+
+
+>>>>>>> f0922e9698aa9ab647e57cfbec8add0156da77e5
     console.log(`the server is running on ${process.env.PORT} ports`)
 })
